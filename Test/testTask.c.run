@@ -1,0 +1,27 @@
+void testTask(void) {
+	Unity.TestFile = "Test/testTask.c";
+	UnityDefaultTestRun(testExit, "testExit", 2);
+	UnityDefaultTestRun(testReturn, "testReturn", 8);
+	UnityDefaultTestRun(testTerminate, "testTerminate", 13);
+	UnityDefaultTestRun(testSecondTerminateFails, "testSecondTerminateFails", 18);
+	UnityDefaultTestRun(testActivateActiveFails, "testActivateActiveFails", 24);
+	UnityDefaultTestRun(testActivateDormantSucceeds, "testActivateDormantSucceeds", 29);
+	UnityDefaultTestRun(testInterruptActivateDormantSucceeds, "testInterruptActivateDormantSucceeds", 37);
+	UnityDefaultTestRun(testInterruptActivateActiveFails, "testInterruptActivateActiveFails", 45);
+	UnityDefaultTestRun(testActivateFromInterruptContext, "testActivateFromInterruptContext", 52);
+	UnityDefaultTestRun(testInterruptActivateFromNormalContext, "testInterruptActivateFromNormalContext", 59);
+	UnityDefaultTestRun(testSleep, "testSleep", 65);
+	UnityDefaultTestRun(testSleepTerminate, "testSleepTerminate", 71);
+	UnityDefaultTestRun(testSleepTerminateActivate, "testSleepTerminateActivate", 79);
+	UnityDefaultTestRun(testSleepExpiry, "testSleepExpiry", 91);
+	UnityDefaultTestRun(testWakup, "testWakup", 101);
+	UnityDefaultTestRun(testWakeupFromInterruptContext, "testWakeupFromInterruptContext", 112);
+	UnityDefaultTestRun(testInterruptWakeup, "testInterruptWakeup", 120);
+	UnityDefaultTestRun(testInterruptWakeupFromNormalContext, "testInterruptWakeupFromNormalContext", 129);
+	UnityDefaultTestRun(testWakupNotSleeping, "testWakupNotSleeping", 137);
+	UnityDefaultTestRun(testSuspend, "testSuspend", 142);
+	UnityDefaultTestRun(testSuspendFromInterruptContext, "testSuspendFromInterruptContext", 149);
+	UnityDefaultTestRun(testDoubleSuspend, "testDoubleSuspend", 156);
+	UnityDefaultTestRun(testResumeSuspended, "testResumeSuspended", 164);
+	UnityDefaultTestRun(testResumeRunning, "testResumeRunning", 172);
+}

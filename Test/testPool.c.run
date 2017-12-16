@@ -1,0 +1,24 @@
+void testPool(void) {
+	Unity.TestFile = "Test/testPool.c";
+	UnityDefaultTestRun(testCreateUnaligned, "testCreateUnaligned", 4);
+	UnityDefaultTestRun(testCreateZeroSize, "testCreateZeroSize", 10);
+	UnityDefaultTestRun(testCreateOneCount, "testCreateOneCount", 16);
+	UnityDefaultTestRun(testCreateOK, "testCreateOK", 22);
+	UnityDefaultTestRun(testSerialGets, "testSerialGets", 28);
+	UnityDefaultTestRun(testSerialGetsPolling, "testSerialGetsPolling", 42);
+	UnityDefaultTestRun(testSerialInterruptGetsPolling, "testSerialInterruptGetsPolling", 56);
+	UnityDefaultTestRun(testGetReleaseGet, "testGetReleaseGet", 68);
+	UnityDefaultTestRun(testGetUnlockOrder, "testGetUnlockOrder", 83);
+	UnityDefaultTestRun(testRedundantRelease, "testRedundantRelease", 113);
+	UnityDefaultTestRun(testRedundantReleaseAfterGet, "testRedundantReleaseAfterGet", 122);
+	UnityDefaultTestRun(testGetTimeout, "testGetTimeout", 132);
+	UnityDefaultTestRun(testInterruptGetPollFromNormalContext, "testInterruptGetPollFromNormalContext", 150);
+	UnityDefaultTestRun(testInterruptReleaseFromNormalContext, "testInterruptReleaseFromNormalContext", 155);
+	UnityDefaultTestRun(testGetPollFromInterruptContext, "testGetPollFromInterruptContext", 161);
+	UnityDefaultTestRun(testReleaseFromInterruptContext, "testReleaseFromInterruptContext", 166);
+	UnityDefaultTestRun(testDeleteFromInterruptContext, "testDeleteFromInterruptContext", 173);
+	UnityDefaultTestRun(testDoubleDelete, "testDoubleDelete", 178);
+	UnityDefaultTestRun(testFreeBlocks, "testFreeBlocks", 185);
+	UnityDefaultTestRun(testUsedBlocks, "testUsedBlocks", 205);
+	UnityDefaultTestRun(testDeleteReleases, "testDeleteReleases", 225);
+}

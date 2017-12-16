@@ -1,0 +1,24 @@
+void testSemaphore(void) {
+	Unity.TestFile = "Test/testSemaphore.c";
+	UnityDefaultTestRun(testCreateMaxCount0, "testCreateMaxCount0", 2);
+	UnityDefaultTestRun(testCreateMaxCountNegative, "testCreateMaxCountNegative", 8);
+	UnityDefaultTestRun(testCreateCountGreaterThanMax, "testCreateCountGreaterThanMax", 14);
+	UnityDefaultTestRun(testCreateCountNegative, "testCreateCountNegative", 20);
+	UnityDefaultTestRun(testCreateOK, "testCreateOK", 26);
+	UnityDefaultTestRun(testTaskReleaseReleases, "testTaskReleaseReleases", 34);
+	UnityDefaultTestRun(testDeleteReleases, "testDeleteReleases", 52);
+	UnityDefaultTestRun(testWaitWaitSignal, "testWaitWaitSignal", 70);
+	UnityDefaultTestRun(testSignalFromInterrupt, "testSignalFromInterrupt", 84);
+	UnityDefaultTestRun(testWaitTimeout, "testWaitTimeout", 98);
+	UnityDefaultTestRun(testWaitPoll, "testWaitPoll", 111);
+	UnityDefaultTestRun(testUnlockOrder, "testUnlockOrder", 120);
+	UnityDefaultTestRun(testInteruptWaitPoll, "testInteruptWaitPoll", 156);
+	UnityDefaultTestRun(testSignalOverflow, "testSignalOverflow", 165);
+	UnityDefaultTestRun(testInterruptSignalOverflow, "testInterruptSignalOverflow", 173);
+	UnityDefaultTestRun(testWaitPollFromInterruptContext, "testWaitPollFromInterruptContext", 180);
+	UnityDefaultTestRun(testWaitFromInterruptContext, "testWaitFromInterruptContext", 185);
+	UnityDefaultTestRun(testDeleteFromInterruptContext, "testDeleteFromInterruptContext", 190);
+	UnityDefaultTestRun(testSignalFromInterruptContext, "testSignalFromInterruptContext", 195);
+	UnityDefaultTestRun(testInterruptWaitPollFromNormalContext, "testInterruptWaitPollFromNormalContext", 200);
+	UnityDefaultTestRun(testInterruptSignalFromNormalContext, "testInterruptSignalFromNormalContext", 205);
+}

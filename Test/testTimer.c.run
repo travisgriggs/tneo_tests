@@ -1,0 +1,18 @@
+void testTimer(void) {
+	Unity.TestFile = "Test/testTimer.c";
+	UnityDefaultTestRun(testCreate, "testCreate", 2);
+	UnityDefaultTestRun(testRedundantCreate, "testRedundantCreate", 8);
+	UnityDefaultTestRun(testDelete, "testDelete", 13);
+	UnityDefaultTestRun(testDoubleDelete, "testDoubleDelete", 18);
+	UnityDefaultTestRun(testDeleteCreate, "testDeleteCreate", 24);
+	UnityDefaultTestRun(testFires, "testFires", 30);
+	UnityDefaultTestRun(testStart0, "testStart0", 38);
+	UnityDefaultTestRun(testCancel, "testCancel", 46);
+	UnityDefaultTestRun(testExpiredCancel, "testExpiredCancel", 55);
+	UnityDefaultTestRun(testIsActive, "testIsActive", 64);
+	UnityDefaultTestRun(testIsActivePostCancel, "testIsActivePostCancel", 78);
+	UnityDefaultTestRun(testTimeLeftAtCreate, "testTimeLeftAtCreate", 90);
+	UnityDefaultTestRun(testTimeLeftAfterStart, "testTimeLeftAfterStart", 99);
+	UnityDefaultTestRun(testTimeLeftAfterCancel, "testTimeLeftAfterCancel", 118);
+	UnityDefaultTestRun(testAccuracy, "testAccuracy", 129);
+}
