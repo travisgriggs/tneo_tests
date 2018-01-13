@@ -246,7 +246,6 @@ void setUp(void) {
 	for (Testlet *testlet = Testlets; testlet - Testlets < TestletCount; testlet++) {
 		rc = tn_task_create(&testlet->task, taskLoop, priority(index), Stacks + offset, TestStackSize, (void*)(testlet), TN_TASK_CREATE_OPT_START);
 		TEST_ASSERT_EQUAL_RC(TN_RC_OK, rc);
-		tn_tick_int_processing(); // force reschedule
 		TEST_ASSERT_EQUAL(testlet->task.priority, testlet->task.base_priority);
 		TEST_ASSERT_EQUAL(TN_TASK_STATE_WAIT, testlet->task.task_state);
 		TEST_ASSERT_EQUAL(TN_WAIT_REASON_DQUE_WRECEIVE, testlet->task.task_wait_reason);
