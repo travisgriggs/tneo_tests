@@ -95,12 +95,12 @@ static void testTimeLeftAtCreate(void) {
 	TEST_ASSERT_EQUAL_RC(TN_RC_OK, rc);
 }
 
-TN_TickCnt tickGet(void);
+TN_TickCnt rtcNow(void);
 
 static void testTimeLeftAfterStart(void) {
 	TN_TickCnt timeLeft = 42;
-	TN_TickCnt now = tickGet();
-	while (tickGet() == now) { } // wait for the falling edge of a tick change
+	TN_TickCnt now = rtcNow();
+	while (rtcNow() == now) { } // wait for the falling edge of a tick change
 	tn_timer_start(timer(0), 50);
 	enum TN_RCode rc = tn_timer_time_left(timer(0), &timeLeft);
 	TEST_ASSERT_EQUAL(50, timeLeft);
@@ -129,11 +129,11 @@ static void testTimeLeftAfterCancel(void) {
 
 static void testAccuracy(void) {
 	TN_TickCnt start;
-	TN_TickCnt now = tickGet();
-	while ((start = tickGet()) == now) { } // wait for the falling edge of a tick change
+	TN_TickCnt now = rtcNow();
+	while ((start = rtcNow()) == now) { } // wait for the falling edge of a tick change
 	tn_timer_start(timer(0), 10);
 	while (TimerCallbackValue == 0) { tn_tick_int_processing(); } // spin wait for timer to trip // why do i need to drive the scheduler here?
-	TN_TickCnt done = tickGet();
+	TN_TickCnt done = rtcNow();
 	TEST_ASSERT_EQUAL(10, done - start);
 }
 
