@@ -1,5 +1,5 @@
 #include "testSupport.h"
-#include "samd21g18a.h"
+#include "compiler.h" // grabs the correct model variant
 #include "unity_internals.h"
 
 #define TestletCount 5
@@ -198,9 +198,18 @@ void interrupt(Command command) {
 	while (NVIC_GetPendingIRQ(21)) {  }
 }
 
+// To simulate code run from an interrupt, we abuse the TC6 handler, which is assumed to unconfigured/unused for these tests
+// Said handler is defined on a J model, other models don't have TC6, so we have to stub in a handler that has been declared
+// in a modified resetVectors.c
+#ifdef ID_TC6
+void TC6_Handler(void) {
+	RCInterrupt = dispatch(InterruptCommand);
+}
+#else
 void PV21Handler(void) {
 	RCInterrupt = dispatch(InterruptCommand);
 }
+#endif // ID_TC6
 
 uint32_t TimerCallbackValue = 0;
 void timerCallback(struct TN_Timer *timer, void *arg) {
